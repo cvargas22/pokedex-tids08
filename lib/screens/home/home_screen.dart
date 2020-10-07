@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/helpers/customWidget.dart';
 import 'package:pokedex/models/pokemon_list_model.dart';
 import 'package:pokedex/screens/home/components/pokemon_card.dart';
 import 'package:pokedex/services/api_provider.dart';
@@ -20,7 +21,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
       duration: Duration(milliseconds: 4000)
     );
     controller.repeat();
+  }
 
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -53,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
                     child: Text(
                       'Pokedex',
                       style: TextStyle(
-                        fontSize: 25,
+                        fontSize: getFontSize(context, 25),
                         fontWeight: FontWeight.w700,
                       ),
                     ),
