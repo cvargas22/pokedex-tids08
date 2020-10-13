@@ -1,4 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:pokedex/models/pokemon_about_detail_model.dart';
+import 'package:pokedex/models/pokemon_about_location_model.dart';
+import 'package:pokedex/models/pokemon_about_model.dart';
+import 'package:pokedex/models/pokemon_about_species_model.dart';
 import 'package:pokedex/models/pokemon_list_model.dart';
 
 class ApiProvider{
@@ -14,5 +18,27 @@ class ApiProvider{
 
     }
     return lista;
+  }
+
+  Future<PokemonAboutModel> obtenerInfoAboutPokemon(String nombrePoke) async{
+    var pokeAbout = PokemonAboutModel();
+    try {
+      Response respA = await dio.get('https://pokeapi.co/api/v2/pokemon/$nombrePoke');
+      final pokeDetail = PokeAboutDetail.fromJson(respA.data);
+      Response respB = await dio.get('https://pokeapi.co/api/v2/pokemon/${pokeDetail.id}/encounters');
+      final pokeListLocation = PokemonAboutLocationListModel.fromJsonList(respB.data);
+      Response respC = await dio.get('https://pokeapi.co/api/v2/pokemon-species/${pokeDetail.id}');
+      final pokeSpecies = PokeAboutSpecies.fromJson(respC.data);
+
+      pokeAbout = PokemonAboutModel(
+        pokeDetail: pokeDetail,
+        pokeLocations: pokeListLocation.items,
+        pokeSpecies: pokeSpecies
+      );
+
+    } catch (e) {
+    }
+
+    return pokeAbout;
   }
 }

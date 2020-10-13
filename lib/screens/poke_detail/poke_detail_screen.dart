@@ -147,7 +147,9 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> with TickerPr
                   ),
                   body: TabBarView(
                     children: [
-                      PokemonAbout(),
+                      PokemonAbout(
+                        nombrePokemon: widget.pokemon.name.toLowerCase(),
+                      ),
                       PokemonStats(),
                       PokemonEvolutions(),
                       PokemonMoves()
