@@ -150,7 +150,9 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> with TickerPr
                       PokemonAbout(
                         nombrePokemon: widget.pokemon.name.toLowerCase(),
                       ),
-                      PokemonStats(),
+                      PokemonStats(
+                        nombrePokemon: widget.pokemon.name.toLowerCase(),
+                      ),
                       PokemonEvolutions(),
                       PokemonMoves()
                     ],
