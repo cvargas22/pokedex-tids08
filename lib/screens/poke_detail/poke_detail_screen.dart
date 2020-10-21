@@ -74,6 +74,7 @@ class _PokemonDetailScreenState extends State<PokemonDetailScreen> with TickerPr
             ),
           ),
           SlidingUpPanel(
+            color: Colors.white,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(20),
               topRight: Radius.circular(20),
