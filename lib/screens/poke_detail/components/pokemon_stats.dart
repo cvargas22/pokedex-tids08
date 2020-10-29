@@ -161,7 +161,7 @@ class PokemonStats extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 2,
+            flex: 3,
             child: Wrap(
               children: abilities.map((ability) => Container(
                 padding: EdgeInsets.only(right:10),
@@ -195,7 +195,7 @@ class PokemonStats extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 2,
+            flex: 3,
             child: Text(
               valor,
               style: TextStyle(

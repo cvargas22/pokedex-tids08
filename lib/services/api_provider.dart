@@ -65,4 +65,16 @@ class ApiProvider{
     return pokeStats;
 
   }
+  //crear un future que retorne el PokemonMovesModel y que reciba como parametro el nombre del pokemon
+  //final pokeMoves = PokemonMovesModel.fromJson(response.data)
+
+  //crear un future que retonar un PokemonEvolutionModel y que recibe como parametro el nombrePoke
+  //primera llamada para obtener los datos de pokemon detail
+  //crear el objeto que guarde el PokeEvolutionDetail.fromJson()
+  //con ese objeta hacen la otra llamada con la url que viene de evolutionDetailResponse respX = await dio.get(pokeStatDetail.species.url);
+  //crear el objeto que guarde el PokeEvolutionSpecies
+  //la llamada final para obtener la evolutionChain
+  //crear en ese objeto PokeEvolutionChain
+  //asignan cada uno de los objetos al objeto principal PokemonEvolutionModel
+
 }
